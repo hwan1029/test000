@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>COIN FOREST - 슬라임 숲의 동전 사냥</title>
+<title>튼튼 등뼈 검사 - 척추측만증 검사 안내</title>
+<meta name="description" content="초등학교 4학년 친구들을 위한 척추측만증 검사 안내 페이지예요.">
 <style>
-/* ---------- 폰트 ---------- */
 /* 1. 일반 글씨: 마루 부리 */
 @font-face { font-family: 'MaruBuri'; src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-ExtraLight.woff2); font-weight: 200; font-display: swap; }
 @font-face { font-family: 'MaruBuri'; src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Light.woff2); font-weight: 300; font-display: swap; }
@@ -17,512 +17,331 @@
 @font-face { font-family: 'LevelUp'; src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/2610132210@levelup-regular/levelup-regular/LevelUp-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
 @font-face { font-family: 'LevelUp'; src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/2610132210@levelup-regular/levelup-regular/LevelUp-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 
-/* ---------- 제한된 팔레트 (16색) ---------- */
+/* 제한된 팔레트 (16색) */
 :root {
-  --ink: #1d2b53;
-  --plum: #7e2553;
-  --forest: #008751;
-  --brown: #ab5236;
-  --stone: #5f574f;
-  --silver: #c2c3c7;
-  --cream: #fff1e8;
-  --red: #ff004d;
-  --orange: #ffa300;
-  --yellow: #ffec27;
-  --lime: #00e436;
-  --sky: #29adff;
-  --lavender: #83769c;
-  --pink: #ff77a8;
-  --peach: #ffccaa;
-  --night: #0f1226;
+  --ink: #1d2b53; --plum: #7e2553; --forest: #008751; --brown: #ab5236;
+  --stone: #5f574f; --silver: #c2c3c7; --cream: #fff1e8; --red: #ff004d;
+  --orange: #ffa300; --yellow: #ffec27; --lime: #00e436; --sky: #29adff;
+  --lavender: #83769c; --pink: #ff77a8; --peach: #ffccaa; --night: #0f1226;
   --px: 4px;
 }
-
 * { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: 'MaruBuri', 'Malgun Gothic', sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--cream);
-  background-color: var(--ink);
-  /* 타일형 배경 */
+  margin: 0; min-height: 100vh;
+  font-family: 'MaruBuri', 'Malgun Gothic', sans-serif; font-size: 17px; line-height: 1.8;
+  color: var(--cream); background-color: var(--ink);
   background-image:
     linear-gradient(45deg, var(--night) 25%, transparent 25%, transparent 75%, var(--night) 75%),
     linear-gradient(45deg, var(--night) 25%, transparent 25%, transparent 75%, var(--night) 75%);
-  background-size: 64px 64px;
-  background-position: 0 0, 32px 32px;
-  image-rendering: pixelated;
+  background-size: 64px 64px; background-position: 0 0, 32px 32px;
 }
+h1, h2, h3, .title-font { font-family: 'LevelUp', 'MaruBuri', sans-serif; font-weight: 700; letter-spacing: .03em; margin: 0; line-height: 1.35; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 24px 16px 64px; }
+p { margin: 0 0 10px; }
+b { font-weight: 700; }
 
-h1, h2, h3, .title-font { font-family: 'LevelUp', 'MaruBuri', sans-serif; font-weight: 700; letter-spacing: .04em; margin: 0; }
+/* 헤더 */
+header { text-align: center; padding: 28px 0 8px; }
+header .hero { display: flex; justify-content: center; align-items: flex-end; gap: 16px; }
+header canvas { width: 96px; height: 96px; image-rendering: pixelated; }
+header h1 { font-size: clamp(34px, 9vw, 60px); color: var(--yellow); text-shadow: 4px 4px 0 var(--red), 8px 8px 0 var(--night); margin-top: 12px; }
+header .sub { font-family: 'LevelUp', sans-serif; font-size: clamp(18px, 4.5vw, 26px); color: var(--cream); margin: 18px 0 6px; }
+header .for { display: inline-block; background: var(--lime); color: var(--night); border: var(--px) solid var(--night); padding: 2px 14px; font-family: 'LevelUp', sans-serif; font-size: 16px; box-shadow: 4px 4px 0 var(--night); }
 
-.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
-
-/* ---------- 헤더 ---------- */
-header { text-align: center; padding: 24px 0 8px; }
-header h1 {
-  font-size: clamp(32px, 9vw, 64px);
-  color: var(--yellow);
-  text-shadow: 4px 4px 0 var(--red), 8px 8px 0 var(--night);
-}
-header p { color: var(--silver); margin: 18px 0 0; }
-.blink { animation: blink 1s steps(1) infinite; color: var(--lime); font-family: 'LevelUp', sans-serif; }
-@keyframes blink { 50% { opacity: 0; } }
-
-/* ---------- 레트로 창 ---------- */
-.window {
-  background: var(--cream);
-  color: var(--ink);
-  border: var(--px) solid var(--night);
-  box-shadow: 0 0 0 var(--px) var(--cream), 8px 8px 0 var(--px) var(--night);
-  margin: 40px 0;
-  position: relative;
-}
-.window .bar {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--sky); border-bottom: var(--px) solid var(--night);
-  padding: 6px 10px; color: var(--night);
-}
-.window .bar h2 { font-size: 18px; }
-.dots { display: flex; gap: 6px; }
+/* 창 */
+.window { background: var(--cream); color: var(--ink); border: var(--px) solid var(--night); box-shadow: 0 0 0 var(--px) var(--cream), 8px 8px 0 var(--px) var(--night); margin: 44px 0; }
+.window .bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--sky); border-bottom: var(--px) solid var(--night); padding: 6px 10px; color: var(--night); }
+.window .bar h2 { font-size: 19px; }
+.dots { display: flex; gap: 6px; flex: none; }
 .dots i { width: 12px; height: 12px; background: var(--red); border: 2px solid var(--night); display: block; }
 .dots i:nth-child(2) { background: var(--yellow); }
 .dots i:nth-child(3) { background: var(--lime); }
-.window .body { padding: 16px; }
-.window.dark { background: var(--night); color: var(--cream); }
+.window .body { padding: 18px; }
+.window.pink .bar { background: var(--pink); }
+.window.yellow .bar { background: var(--yellow); }
+.window.green .bar { background: var(--lime); }
+.window.orange .bar { background: var(--orange); }
 
-/* ---------- HUD ---------- */
-.hud {
-  display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
-  background: var(--night); color: var(--cream); padding: 8px 12px;
-  font-family: 'LevelUp', sans-serif; font-size: 18px;
-}
-.hearts { display: flex; gap: 4px; }
-.heart { width: 20px; height: 20px; image-rendering: pixelated; }
-.coin-count { color: var(--yellow); }
+.lead { font-size: 19px; }
+.mark { background: var(--yellow); padding: 0 4px; }
 
-/* ---------- 게임 화면 ---------- */
-.screen { position: relative; background: var(--night); line-height: 0; }
-canvas#game { width: 100%; height: auto; display: block; image-rendering: pixelated; image-rendering: crisp-edges; image-rendering: pixelated; }
-.overlay {
-  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; text-align: center; line-height: 1.5; background: rgba(15, 18, 38, .82); padding: 16px;
-}
-.overlay[hidden] { display: none; }
-.overlay h3 { font-size: clamp(24px, 6vw, 40px); color: var(--yellow); text-shadow: 3px 3px 0 var(--red); }
-.overlay p { margin: 0; color: var(--cream); font-size: 14px; }
+/* 척추 그림 */
+.spines { display: flex; justify-content: space-around; align-items: flex-end; gap: 8px; margin: 14px 0 4px; text-align: center; }
+.spines figure { margin: 0; }
+.spines canvas { width: 120px; height: 264px; image-rendering: pixelated; background: var(--night); border: var(--px) solid var(--night); }
+.spines figcaption { font-family: 'LevelUp', sans-serif; font-size: 16px; margin-top: 6px; }
+.spines .ok figcaption { color: var(--forest); }
+.spines .bend figcaption { color: var(--red); }
 
-/* ---------- 버튼 ---------- */
-.btn {
-  font-family: 'LevelUp', sans-serif; font-size: 18px; cursor: pointer;
-  color: var(--night); background: var(--yellow);
-  border: var(--px) solid var(--night); padding: 8px 18px;
-  box-shadow: inset -4px -4px 0 var(--orange), 4px 4px 0 var(--night);
-  transition: none;
-}
-.btn:hover { background: var(--cream); }
+/* 단계 */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.steps li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: start; background: #fff; border: var(--px) solid var(--night); padding: 12px; box-shadow: 4px 4px 0 var(--night); }
+.num { width: 48px; height: 48px; display: grid; place-items: center; font-family: 'LevelUp', sans-serif; font-size: 26px; background: var(--yellow); color: var(--night); border: var(--px) solid var(--night); box-shadow: inset -4px -4px 0 var(--orange); }
+.steps h3 { font-size: 19px; color: var(--plum); margin-bottom: 2px; }
+.steps p { margin: 0; font-size: 16px; }
+
+/* 카드 */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.card { background: #fff; border: var(--px) solid var(--night); padding: 14px; box-shadow: 4px 4px 0 var(--night); }
+.card h3 { font-size: 18px; color: var(--plum); margin-bottom: 4px; }
+.card p { margin: 0; font-size: 16px; }
+.card .em { font-size: 28px; line-height: 1; margin-bottom: 6px; display: block; }
+
+/* 말풍선 */
+.say { position: relative; background: var(--yellow); border: var(--px) solid var(--night); padding: 12px 16px; margin: 14px 0 6px; box-shadow: 4px 4px 0 var(--night); }
+.say::before { content: ""; position: absolute; left: 22px; top: -16px; border: 8px solid transparent; border-bottom: 8px solid var(--night); border-top: 0; transform: scaleX(1.5); transform-origin: left; }
+
+/* 버튼 */
+.btn { font-family: 'LevelUp', sans-serif; font-size: 18px; cursor: pointer; color: var(--night); background: var(--yellow); border: var(--px) solid var(--night); padding: 6px 18px; box-shadow: inset -4px -4px 0 var(--orange), 4px 4px 0 var(--night); }
+.btn:hover { background: #fff; }
 .btn:active { transform: translate(4px, 4px); box-shadow: inset -4px -4px 0 var(--orange); }
-.btn.alt { background: var(--sky); box-shadow: inset -4px -4px 0 var(--lavender), 4px 4px 0 var(--night); }
+.btn.o { background: var(--lime); box-shadow: inset -4px -4px 0 var(--forest), 4px 4px 0 var(--night); }
+.btn.x { background: var(--pink); box-shadow: inset -4px -4px 0 var(--red), 4px 4px 0 var(--night); }
+.btn:focus-visible, input:focus-visible { outline: 4px solid var(--red); outline-offset: 2px; }
 
-/* ---------- D-패드 ---------- */
-.pad { display: grid; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(2, 56px); gap: 4px; justify-content: center; margin: 16px auto 0; user-select: none; touch-action: none; }
-.pad button { font-family: 'LevelUp', sans-serif; font-size: 22px; background: var(--silver); color: var(--night); border: var(--px) solid var(--night); box-shadow: inset -4px -4px 0 var(--lavender); cursor: pointer; padding: 0; }
-.pad button:active, .pad button.on { background: var(--yellow); transform: translate(2px, 2px); }
-.pad .u { grid-column: 2; grid-row: 1; }
-.pad .l { grid-column: 1; grid-row: 2; }
-.pad .d { grid-column: 2; grid-row: 2; }
-.pad .r { grid-column: 3; grid-row: 2; }
-.hint { text-align: center; font-size: 14px; margin: 12px 0 0; color: var(--stone); }
+/* OX 퀴즈 */
+.quiz { display: grid; gap: 16px; }
+.q { background: #fff; border: var(--px) solid var(--night); padding: 14px; box-shadow: 4px 4px 0 var(--night); }
+.q .qt { font-weight: 700; margin-bottom: 10px; }
+.q .btns { display: flex; gap: 12px; }
+.q .btns .btn { min-width: 72px; }
+.fb { margin-top: 12px; padding: 10px 12px; border: var(--px) solid var(--night); font-size: 16px; }
+.fb[hidden] { display: none; }
+.fb.good { background: var(--lime); }
+.fb.bad { background: var(--peach); }
+.score { font-family: 'LevelUp', sans-serif; font-size: 20px; margin-top: 14px; text-align: center; }
 
-/* ---------- 정보 카드 ---------- */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.card { background: var(--cream); color: var(--ink); border: var(--px) solid var(--night); padding: 14px; box-shadow: 4px 4px 0 var(--night); }
-.card h3 { font-size: 18px; color: var(--plum); margin-bottom: 6px; }
-.card p { margin: 0; font-size: 14px; }
+/* 셀프 체크 */
+.check { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+.check label { display: flex; gap: 12px; align-items: flex-start; background: #fff; border: var(--px) solid var(--night); padding: 10px 12px; cursor: pointer; }
+.check input { appearance: none; flex: none; width: 28px; height: 28px; margin: 2px 0 0; background: var(--cream); border: var(--px) solid var(--night); cursor: pointer; }
+.check input:checked { background: var(--lime); box-shadow: inset 0 0 0 4px var(--cream); }
+.result { font-weight: 700; }
 
-.swatches { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0; border: var(--px) solid var(--night); }
-.swatches span { aspect-ratio: 1; display: block; }
+/* 습관 */
+.habit { display: flex; gap: 10px; align-items: flex-start; }
+.habit .ico { font-size: 26px; line-height: 1.2; flex: none; }
 
-.fonts dt { font-size: 13px; color: var(--stone); margin-top: 12px; }
-.fonts dd { margin: 0; }
-.fonts .big-title { font-family: 'LevelUp'; font-size: 32px; color: var(--plum); line-height: 1.3; }
-.fonts .body-text { font-size: 16px; }
-.fonts .body-text b { font-weight: 700; }
+/* 안내 표 */
+.info { width: 100%; border-collapse: collapse; background: #fff; }
+.info th, .info td { border: var(--px) solid var(--night); padding: 8px 12px; text-align: left; font-size: 16px; }
+.info th { background: var(--sky); width: 32%; font-family: 'LevelUp', sans-serif; font-weight: 700; }
 
-footer { text-align: center; color: var(--lavender); font-size: 14px; margin-top: 48px; }
+.note { font-size: 15px; color: var(--stone); }
+footer { color: var(--silver); font-size: 14px; margin-top: 48px; text-align: center; }
+footer a { color: var(--yellow); }
+footer ul { list-style: none; padding: 0; margin: 8px 0 0; }
 
-@media (prefers-reduced-motion: reduce) { .blink { animation: none; } }
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .steps li { grid-template-columns: 44px 1fr; }
+  .num { width: 40px; height: 40px; font-size: 22px; }
+  .spines canvas { width: 96px; height: 211px; }
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <h1>COIN FOREST</h1>
-    <p class="title-font" style="font-size:22px;color:var(--cream);">슬라임 숲의 동전 사냥</p>
-    <p style="max-width:520px;margin:12px auto 0;">
-      슬라임이 어슬렁거리는 숲에 동전이 흩어져 있어요. 용사가 되어 슬라임을 피하고,
-      동전 10개를 모두 모아 보세요. 하트 3개를 모두 잃으면 게임 오버!
-    </p>
-    <p class="blink">- INSERT COIN -</p>
+    <div class="hero"><canvas id="hero" width="16" height="16" aria-hidden="true"></canvas></div>
+    <h1>튼튼 등뼈 검사</h1>
+    <p class="sub">척추측만증 검사, 이렇게 해요!</p>
+    <span class="for">4학년 친구들을 위한 안내</span>
   </header>
 
-  <!-- 게임 창 -->
-  <section class="window" aria-label="미니 게임">
-    <div class="bar">
-      <h2>PLAYER 1</h2>
-      <div class="dots"><i></i><i></i><i></i></div>
-    </div>
-    <div class="hud">
-      <div class="hearts" id="hearts" aria-label="체력"></div>
-      <div class="coin-count">COIN <span id="score">0</span> / <span id="goal">10</span></div>
-    </div>
-    <div class="screen">
-      <canvas id="game" width="320" height="192"></canvas>
-      <div class="overlay" id="overlay">
-        <h3 id="ov-title">COIN FOREST</h3>
-        <p id="ov-text">슬라임을 피해 동전 10개를 모으세요!</p>
-        <button class="btn" id="start">START</button>
-      </div>
-    </div>
+  <!-- 1 -->
+  <section class="window">
+    <div class="bar"><h2>1. 등뼈가 뭐예요?</h2><div class="dots"><i></i><i></i><i></i></div></div>
     <div class="body">
-      <div class="pad" id="pad">
-        <button class="u" data-k="up" aria-label="위">▲</button>
-        <button class="l" data-k="left" aria-label="왼쪽">◀</button>
-        <button class="d" data-k="down" aria-label="아래">▼</button>
-        <button class="r" data-k="right" aria-label="오른쪽">▶</button>
+      <p class="lead">등 한가운데를 만져 보세요. 오돌토돌한 뼈가 만져지죠? 이게 바로 <b class="mark">등뼈</b>예요. 어려운 말로는 <b>척추</b>라고 해요.</p>
+      <p>등뼈는 작은 뼈 블록이 쌓여 있는 기둥이에요. 우리 몸을 꼿꼿하게 세워 주고, 뛰고 구부릴 때도 움직일 수 있게 도와줘요.</p>
+      <p>앞이나 뒤에서 보면 등뼈는 보통 <b>쭉 곧게</b> 서 있어요.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="window pink">
+    <div class="bar"><h2>2. 척추측만증은 뭘까요?</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <p class="lead">등뼈가 <b class="mark">옆으로 휘어서</b> 알파벳 C나 S처럼 보이는 걸 <b>척추측만증</b>이라고 해요.</p>
+      <div class="spines">
+        <figure class="ok"><canvas id="sp-normal" width="40" height="88" aria-label="곧은 등뼈 그림"></canvas><figcaption>곧은 등뼈</figcaption></figure>
+        <figure class="bend"><canvas id="sp-c" width="40" height="88" aria-label="C 모양으로 휜 등뼈 그림"></canvas><figcaption>C 모양</figcaption></figure>
+        <figure class="bend"><canvas id="sp-s" width="40" height="88" aria-label="S 모양으로 휜 등뼈 그림"></canvas><figcaption>S 모양</figcaption></figure>
       </div>
-      <p class="hint">방향키 또는 W A S D 로 이동</p>
+      <div class="say"><b>이것만 기억해요!</b> 척추측만증은 친구가 잘못해서 생기는 게 아니에요. 대부분은 <b>왜 생기는지 아직 정확히 몰라요.</b></div>
     </div>
   </section>
 
-  <!-- 설명 카드 -->
-  <section>
-    <div class="grid">
-      <article class="card"><h3>픽셀 캐릭터</h3><p>16×16 도트로 그린 용사와 슬라임. 모든 스프라이트는 코드로 직접 그렸어요.</p></article>
-      <article class="card"><h3>타일형 배경</h3><p>16px 타일을 깔아 만든 잔디, 연못, 나무 맵. 연못과 나무는 지나갈 수 없어요.</p></article>
-      <article class="card"><h3>제한된 색상</h3><p>단 16가지 색만 사용. 색이 적을수록 고전 게임의 분위기가 살아납니다.</p></article>
+  <!-- 3 -->
+  <section class="window yellow">
+    <div class="bar"><h2>3. 왜 검사를 해요?</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <div class="grid">
+        <article class="card"><span class="em">🤫</span><h3>아프지 않아요</h3><p>등뼈가 휘어도 아프지 않은 경우가 많아요. 그래서 내가 스스로 알기 어려워요.</p></article>
+        <article class="card"><span class="em">📈</span><h3>키가 클 때 조심해요</h3><p>키가 쑥쑥 크는 시기에 등뼈가 더 휘기도 해요. 그래서 고학년 친구들을 많이 검사해요.</p></article>
+        <article class="card"><span class="em">🔍</span><h3>일찍 찾으면 좋아요</h3><p>빨리 알수록 도와주기가 쉬워요. 그래서 학교에서 미리 살펴보는 거예요.</p></article>
+      </div>
     </div>
   </section>
 
-  <!-- 팔레트 & 폰트 -->
-  <section class="window dark" style="color: var(--ink);">
-    <div class="bar"><h2>OPTIONS</h2><div class="dots"><i></i><i></i><i></i></div></div>
-    <div class="body" style="background: var(--cream);">
-      <h3 style="font-size:18px;margin-bottom:8px;">COLOR PALETTE</h3>
-      <div class="swatches" id="swatches"></div>
-
-      <dl class="fonts">
-        <dt>제목 글씨 · LevelUp</dt>
-        <dd class="big-title">레벨 업! 새로운 모험의 시작</dd>
-        <dt>일반 글씨 · MaruBuri</dt>
-        <dd class="body-text">
-          용사는 <b>작은 마을</b>에서 눈을 떴습니다. 동전을 모아 마을을 구해 주세요.<br>
-          ABC abc 123 — 가나다라마바사 아자차카타파하
-        </dd>
-      </dl>
+  <!-- 4 -->
+  <section class="window green">
+    <div class="bar"><h2>4. 검사는 이렇게 해요</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <ol class="steps">
+        <li><div class="num">1</div><div><h3>똑바로 서요</h3><p>선생님이나 검사하는 분이 등 뒤에서 어깨와 허리 모양을 살펴봐요.</p></div></li>
+        <li><div class="num">2</div><div><h3>앞으로 숙여요</h3><p>두 손을 모으고 인사하듯 천천히 앞으로 숙여요. 이때 등이 한쪽만 볼록한지 봐요.</p></div></li>
+        <li><div class="num">3</div><div><h3>등 기울기를 재요</h3><p>등 위에 작은 기구를 올려서 얼마나 기울었는지 재요. 눌러도 아프지 않아요.</p></div></li>
+        <li><div class="num">4</div><div><h3>결과를 알려줘요</h3><p>괜찮으면 거기서 끝이에요! 한 번 더 확인이 필요하면 집으로 안내문을 보내줘요.</p></div></li>
+        <li><div class="num">5</div><div><h3>병원에서 사진을 찍어요</h3><p>안내문을 받았다면 부모님과 병원에 가요. 엑스레이(X-ray)로 등뼈 모양을 자세히 보고, 의사 선생님이 알려 줘요.</p></div></li>
+      </ol>
+      <p class="note" style="margin-top:14px;">※ 검사 방법은 학교와 지역에 따라 조금 달라요. 자세한 건 선생님이 알려 주실 거예요.</p>
     </div>
   </section>
 
-  <footer>© 2026 COIN FOREST · MADE WITH 16 COLORS</footer>
+  <!-- 5 -->
+  <section class="window orange">
+    <div class="bar"><h2>5. 걱정하지 마세요</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <div class="grid">
+        <article class="card"><h3>👍 안 아파요</h3><p>눈으로 보고, 기구를 올려 재는 검사예요. 주사도 없어요.</p></article>
+        <article class="card"><h3>👍 금방 끝나요</h3><p>한 명씩 아주 짧게 하고, 옷은 선생님 안내에 따라 편하게 입고 와요.</p></article>
+        <article class="card"><h3>👍 꼭 병은 아니에요</h3><p>한 번 더 확인하라는 말을 들어도 꼭 척추측만증은 아니에요. 정확히 알아보려는 거예요.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 퀴즈 -->
+  <section class="window">
+    <div class="bar"><h2>6. OX 퀴즈에 도전!</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <div class="quiz" id="quiz"></div>
+      <div class="score" id="score" hidden></div>
+    </div>
+  </section>
+
+  <!-- 7 셀프 체크 -->
+  <section class="window pink">
+    <div class="bar"><h2>7. 집에서 살펴봐요</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <p>가족과 함께 거울 앞에서 살펴봐요. 이건 병을 알아내는 검사가 아니라 <b>살펴보기 놀이</b>예요. 해당되는 곳을 눌러 보세요.</p>
+      <ul class="check" id="check">
+        <li><label><input type="checkbox"><span>똑바로 섰을 때 <b>양쪽 어깨 높이</b>가 달라 보여요.</span></label></li>
+        <li><label><input type="checkbox"><span>양쪽 <b>허리 선</b>이 다르거나 한쪽 골반이 더 높아 보여요.</span></label></li>
+        <li><label><input type="checkbox"><span>앞으로 숙였을 때 <b>등이 한쪽만 볼록</b>하게 튀어나와 보여요.</span></label></li>
+        <li><label><input type="checkbox"><span>옷을 입으면 한쪽이 자꾸 <b>삐뚤게</b> 내려가요.</span></label></li>
+      </ul>
+      <div class="say result" id="result">해당되는 곳이 있나요? 눌러서 확인해 보세요.</div>
+    </div>
+  </section>
+
+  <!-- 8 습관 -->
+  <section class="window yellow">
+    <div class="bar"><h2>8. 튼튼한 등을 위한 습관</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <p>척추측만증을 막는 방법이 딱 정해진 건 아니에요. 하지만 이런 습관은 몸을 튼튼하게 해 줘요.</p>
+      <div class="grid">
+        <article class="card habit"><span class="ico">🪑</span><div><h3>바르게 앉기</h3><p>의자 깊숙이 앉아 등을 펴요.</p></div></article>
+        <article class="card habit"><span class="ico">🤸</span><div><h3>스트레칭</h3><p>공부하다가 쉬는 시간에 쭉쭉 펴요.</p></div></article>
+        <article class="card habit"><span class="ico">🏊</span><div><h3>신나게 운동</h3><p>수영, 줄넘기, 달리기로 근육을 키워요.</p></div></article>
+        <article class="card habit"><span class="ico">🎒</span><div><h3>가방 편하게</h3><p>가방은 양쪽 어깨에 메서 편하게 들어요.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 안내 -->
+  <section class="window green">
+    <div class="bar"><h2>9. 검사 안내표</h2><div class="dots"><i></i><i></i><i></i></div></div>
+    <div class="body">
+      <table class="info">
+        <tr><th>검사 날짜</th><td>____월 ____일 (____)</td></tr>
+        <tr><th>검사 장소</th><td>________________________</td></tr>
+        <tr><th>준비물</th><td>선생님이 알려 주신 옷차림, 용기 한 스푼!</td></tr>
+        <tr><th>궁금한 점</th><td>담임 선생님이나 보건 선생님께 물어봐요.</td></tr>
+      </table>
+      <p class="note" style="margin-top:12px;">※ 선생님과 보호자께: 칸을 직접 채워서 안내해 주세요. 검사에서 한 번 더 확인이 필요하다고 나오면 정형외과 진료를 권해 주세요.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>이 페이지의 내용은 아래 자료를 참고해 4학년 눈높이로 쉽게 바꿨어요.</p>
+    <ul>
+      <li><a href="https://gangdong.go.kr/web/newportal/press/13431" target="_blank" rel="noopener">강동구청 척추측만증 검진 안내</a></li>
+      <li><a href="https://newsseoul.co.kr/news/view/179589153218570" target="_blank" rel="noopener">과천시 초등학생 척추측만증 조기발견 검진</a></li>
+      <li><a href="https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=32565" target="_blank" rel="noopener">서울아산병원 척추측만증 질환 정보</a></li>
+      <li><a href="https://www.msdmanuals.com/ko/home/기본-정보-아동의-건강-문제/소아-뼈-장애/척추측만증" target="_blank" rel="noopener">MSD 매뉴얼 소아 척추측만증</a></li>
+    </ul>
+    <p style="margin-top:14px;">의학적 진단은 의사 선생님만 할 수 있어요.</p>
+  </footer>
 </div>
 
 <script>
 (() => {
-  const C = {
-    k: '#1d2b53', n: '#0f1226', r: '#ff004d', s: '#ffccaa', b: '#29adff', w: '#fff1e8',
-    g: '#00e436', G: '#008751', Y: '#ffec27', O: '#ffa300', B: '#ab5236', S: '#c2c3c7', P: '#ff77a8'
-  };
-
-  // ---- 팔레트 표시 ----
-  const sw = document.getElementById('swatches');
-  ['#1d2b53','#7e2553','#008751','#ab5236','#5f574f','#c2c3c7','#fff1e8','#ff004d',
-   '#ffa300','#ffec27','#00e436','#29adff','#83769c','#ff77a8','#ffccaa','#0f1226']
-    .forEach(c => { const s = document.createElement('span'); s.style.background = c; s.title = c; sw.appendChild(s); });
-
-  // ---- 스프라이트 (16x16) ----
+  const C = { n: '#0f1226', r: '#ff004d', s: '#ffccaa', b: '#29adff', B: '#ab5236' };
   const HERO = [
-    '................',
-    '....nnnnnnnn....',
-    '...nrrrrrrrrn...',
-    '..nrrrrrrrrrrn..',
-    '..nnnnnnnnnnnn..',
-    '..nssssssssssn..',
-    '..nssnssssnssn..',
-    '..nssssssssssn..',
-    '...nssssssssn...',
-    '....nbbbbbbn....',
-    '...nbbbbbbbbn...',
-    '..nsbbbbbbbbsn..',
-    '...nbbbbbbbbn...',
-    '....nbbnnbbn....',
-    '....nBBn.nBBn...',
-    '....nnnn.nnnn...'
+    '................','....nnnnnnnn....','...nrrrrrrrrn...','..nrrrrrrrrrrn..',
+    '..nnnnnnnnnnnn..','..nssssssssssn..','..nssnssssnssn..','..nssssssssssn..',
+    '...nssssssssn...','....nbbbbbbn....','...nbbbbbbbbn...','..nsbbbbbbbbsn..',
+    '...nbbbbbbbbn...','....nbbnnbbn....','....nBBn.nBBn...','....nnnn.nnnn...'
   ];
-  const SLIME = [
-    '................',
-    '................',
-    '................',
-    '................',
-    '.....nnnnnn.....',
-    '...nngggggnnn...',
-    '..nggggggggggn..',
-    '..nggwngggwnggn.',
-    '..nggggggggggn..',
-    '..nggggggggggn..',
-    '...nnggggggnn...',
-    '....nnnnnnnnn...',
-    '................',
-    '................',
-    '................',
-    '................'
-  ];
-  const HEART = [
-    '.nn..nn.',
-    'nrrnnrrn',
-    'nrwrrrrn',
-    'nrrrrrrn',
-    '.nrrrrn.',
-    '..nrrn..',
-    '...nn...',
-    '........'
-  ];
-  const COIN = [
-    '..nnnn..',
-    '.nYYYYn.',
-    'nYYOOYYn',
-    'nYOYYOYn',
-    'nYOYYOYn',
-    'nYYOOYYn',
-    '.nYYYYn.',
-    '..nnnn..'
-  ];
+  const hx = document.getElementById('hero').getContext('2d');
+  HERO.forEach((row, y) => [...row].forEach((ch, x) => { if (ch !== '.') { hx.fillStyle = C[ch]; hx.fillRect(x, y, 1, 1); } }));
 
-  function sprite(rows) {
-    const cv = document.createElement('canvas');
-    cv.width = rows[0].length; cv.height = rows.length;
-    const x = cv.getContext('2d');
-    rows.forEach((row, y) => [...row].forEach((ch, i) => {
-      if (ch !== '.') { x.fillStyle = C[ch]; x.fillRect(i, y, 1, 1); }
+  // 픽셀 등뼈: 뼈 블록 16개를 쌓아서 그림
+  function spine(id, offset, fill) {
+    const x = document.getElementById(id).getContext('2d');
+    for (let i = 0; i < 16; i++) {
+      const cx = 20 + Math.round(offset(i / 15));
+      const w = 10 + (i < 4 || i > 11 ? 0 : 2);
+      x.fillStyle = '#0f1226'; x.fillRect(cx - w / 2 - 1, 4 + i * 5.2 | 0, w + 2, 5);
+      x.fillStyle = fill;      x.fillRect(cx - w / 2,     (5 + i * 5.2) | 0, w, 3);
+    }
+  }
+  spine('sp-normal', () => 0, '#00e436');
+  spine('sp-c', t => 9 * Math.sin(t * Math.PI), '#ffa300');
+  spine('sp-s', t => 8 * Math.sin(t * Math.PI * 2), '#ffa300');
+
+  // OX 퀴즈
+  const QUIZ = [
+    { q: '척추측만증은 무거운 가방을 메서 생기는 병이다.', a: false, why: '아니에요! 대부분은 왜 생기는지 정확히 몰라요. 가방이나 자세 때문이 아니니까 자책하지 않아도 돼요.' },
+    { q: '등뼈가 휘면 항상 아파서 바로 알 수 있다.', a: false, why: '아프지 않은 경우가 많아요. 그래서 학교에서 미리 검사를 해 주는 거예요.' },
+    { q: '검사에서 한 번 더 확인하라고 해도 꼭 척추측만증은 아니다.', a: true, why: '맞아요! 병원에서 더 자세히 보고 의사 선생님이 정확히 알려 줘요.' },
+    { q: '등뼈가 휜 걸 일찍 알면 도움을 받기가 더 쉽다.', a: true, why: '맞아요! 일찍 알수록 좋아서 검사를 하는 거예요.' }
+  ];
+  const quiz = document.getElementById('quiz'), scoreEl = document.getElementById('score');
+  let answered = 0, correct = 0;
+  QUIZ.forEach((item, i) => {
+    const d = document.createElement('div'); d.className = 'q';
+    d.innerHTML = `<div class="qt">Q${i + 1}. ${item.q}</div>
+      <div class="btns"><button class="btn o" data-v="1" aria-label="맞아요">O</button><button class="btn x" data-v="0" aria-label="틀려요">X</button></div>
+      <div class="fb" hidden></div>`;
+    d.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      if (d.dataset.done) return;
+      d.dataset.done = 1;
+      const ok = (b.dataset.v === '1') === item.a;
+      const fb = d.querySelector('.fb');
+      fb.hidden = false; fb.className = 'fb ' + (ok ? 'good' : 'bad');
+      fb.textContent = (ok ? '정답! 🎉 ' : '아쉬워요! ') + item.why;
+      d.querySelectorAll('button').forEach(x => x.disabled = true);
+      answered++; if (ok) correct++;
+      if (answered === QUIZ.length) {
+        scoreEl.hidden = false;
+        scoreEl.textContent = `${QUIZ.length}문제 중 ${correct}개 맞혔어요! ` + (correct === QUIZ.length ? '척추 박사님이에요! 🏆' : '잘했어요! 👏');
+      }
     }));
-    return cv;
-  }
-  const spr = { hero: sprite(HERO), slime: sprite(SLIME), heart: sprite(HEART), coin: sprite(COIN) };
-
-  // 하트 HUD
-  const heartsEl = document.getElementById('hearts');
-  function renderHearts(n) {
-    heartsEl.innerHTML = '';
-    for (let i = 0; i < 3; i++) {
-      const c = document.createElement('canvas');
-      c.width = 8; c.height = 8; c.className = 'heart';
-      const x = c.getContext('2d');
-      if (i >= n) x.globalAlpha = .25;
-      x.drawImage(spr.heart, 0, 0);
-      heartsEl.appendChild(c);
-    }
-  }
-
-  // ---- 맵 ----
-  const MAP = [
-    'TTTTTTTTTTTTTTTTTTTT',
-    'T..................T',
-    'T...T..........T...T',
-    'T..................T',
-    'T......~~~.........T',
-    'T.....~~~~~....T...T',
-    'T......~~~.........T',
-    'T..................T',
-    'T..T...........T...T',
-    'T..................T',
-    'T......T...........T',
-    'TTTTTTTTTTTTTTTTTTTT'
-  ];
-  const TS = 16, COLS = 20, ROWS = 12, GOAL = 10;
-  const tile = (tx, ty) => (MAP[ty] && MAP[ty][tx]) || 'T';
-  const solid = (tx, ty) => { const t = tile(tx, ty); return t === 'T' || t === '~'; };
-  const hash = (x, y) => ((x * 73856093) ^ (y * 19349663)) >>> 0;
-
-  const cv = document.getElementById('game');
-  const ctx = cv.getContext('2d');
-  ctx.imageSmoothingEnabled = false;
-
-  // 배경은 한 번만 그려서 캐시
-  const bg = document.createElement('canvas'); bg.width = 320; bg.height = 192;
-  (function paintBg() {
-    const x = bg.getContext('2d');
-    for (let ty = 0; ty < ROWS; ty++) for (let tx = 0; tx < COLS; tx++) {
-      const px = tx * TS, py = ty * TS, t = tile(tx, ty);
-      x.fillStyle = (tx + ty) % 2 ? '#008751' : '#00a05a';
-      x.fillRect(px, py, TS, TS);
-      if (t === '.') {
-        const h = hash(tx, ty) % 7;
-        if (h === 0) { x.fillStyle = '#00e436'; x.fillRect(px + 4, py + 9, 1, 3); x.fillRect(px + 10, py + 4, 1, 3); }
-        if (h === 1) { x.fillStyle = '#ff77a8'; x.fillRect(px + 7, py + 7, 2, 2); x.fillStyle = '#ffec27'; x.fillRect(px + 7, py + 7, 1, 1); }
-      } else if (t === 'T') {
-        x.fillStyle = '#0f1226'; x.fillRect(px + 1, py + 14, 14, 2);
-        x.fillStyle = '#ab5236'; x.fillRect(px + 6, py + 10, 4, 5);
-        x.fillStyle = '#1d2b53'; x.fillRect(px + 1, py + 1, 14, 10);
-        x.fillStyle = '#008751'; x.fillRect(px + 2, py + 2, 12, 8);
-        x.fillStyle = '#00e436'; x.fillRect(px + 3, py + 3, 3, 2); x.fillRect(px + 9, py + 5, 2, 2);
-      }
-    }
-  })();
-
-  function drawWater(t) {
-    const f = Math.floor(t / 500) % 2;
-    for (let ty = 0; ty < ROWS; ty++) for (let tx = 0; tx < COLS; tx++) {
-      if (tile(tx, ty) !== '~') continue;
-      const px = tx * TS, py = ty * TS;
-      ctx.fillStyle = '#29adff'; ctx.fillRect(px, py, TS, TS);
-      ctx.fillStyle = '#fff1e8';
-      const o = (f + tx + ty) % 2 ? 0 : 4;
-      ctx.fillRect(px + 3 + o, py + 4, 4, 1);
-      ctx.fillRect(px + 8 - o, py + 11, 4, 1);
-    }
-  }
-
-  // ---- 상태 ----
-  const keys = { up: false, left: false, down: false, right: false };
-  let state = 'title', player, coins, slimes, score, hp, invuln, last = 0;
-
-  function freeSpot() {
-    for (let i = 0; i < 200; i++) {
-      const tx = 1 + Math.floor(Math.random() * (COLS - 2));
-      const ty = 1 + Math.floor(Math.random() * (ROWS - 2));
-      if (!solid(tx, ty) && Math.hypot(tx * TS - player.x, ty * TS - player.y) > 48) return { x: tx * TS, y: ty * TS };
-    }
-    return { x: 32, y: 32 };
-  }
-
-  function reset() {
-    player = { x: 24, y: 144, dir: 1 };
-    score = 0; hp = 3; invuln = 0;
-    coins = []; slimes = [];
-    for (let i = 0; i < 4; i++) coins.push(freeSpot());
-    for (let i = 0; i < 2; i++) {
-      const p = freeSpot();
-      const a = Math.random() * Math.PI * 2;
-      slimes.push({ x: p.x, y: p.y, vx: Math.cos(a) * .6, vy: Math.sin(a) * .6 });
-    }
-    document.getElementById('score').textContent = score;
-    document.getElementById('goal').textContent = GOAL;
-    renderHearts(hp);
-  }
-
-  // 충돌: 16x16 스프라이트 안의 작은 히트박스(12x10)
-  function blocked(x, y) {
-    const l = x + 2, r = x + 13, t = y + 6, b = y + 15;
-    return solid(Math.floor(l / TS), Math.floor(t / TS)) || solid(Math.floor(r / TS), Math.floor(t / TS)) ||
-           solid(Math.floor(l / TS), Math.floor(b / TS)) || solid(Math.floor(r / TS), Math.floor(b / TS));
-  }
-
-  // ---- 효과음 (사각파 비프) ----
-  let ac;
-  function beep(freq, dur, type = 'square', vol = .06) {
-    try {
-      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
-      const o = ac.createOscillator(), g = ac.createGain();
-      o.type = type; o.frequency.value = freq; g.gain.value = vol;
-      o.connect(g); g.connect(ac.destination);
-      o.start(); o.stop(ac.currentTime + dur);
-    } catch (e) {}
-  }
-  const sfxCoin = () => { beep(988, .07); setTimeout(() => beep(1319, .12), 70); };
-  const sfxHit = () => beep(110, .25, 'sawtooth', .08);
-
-  function end(win) {
-    state = 'over';
-    document.getElementById('ov-title').textContent = win ? 'STAGE CLEAR!' : 'GAME OVER';
-    document.getElementById('ov-text').textContent = win ? '모든 동전을 모았어요! 대단해요!' : '슬라임에게 당했어요... 다시 도전해 보세요.';
-    document.getElementById('start').textContent = 'RETRY';
-    document.getElementById('overlay').hidden = false;
-    if (win) { [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => beep(f, .15), i * 120)); } else sfxHit();
-  }
-
-  function update(dt) {
-    const k = dt / 16.67;
-    let dx = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
-    let dy = (keys.down ? 1 : 0) - (keys.up ? 1 : 0);
-    if (dx && dy) { dx *= .7071; dy *= .7071; }
-    if (dx) player.dir = dx > 0 ? 1 : -1;
-    const sp = 1.4 * k;
-    if (!blocked(player.x + dx * sp, player.y)) player.x += dx * sp;
-    if (!blocked(player.x, player.y + dy * sp)) player.y += dy * sp;
-
-    slimes.forEach(s => {
-      let nx = s.x + s.vx * k, ny = s.y + s.vy * k;
-      if (blocked(nx, s.y)) { s.vx = -s.vx; nx = s.x; }
-      if (blocked(s.x, ny)) { s.vy = -s.vy; ny = s.y; }
-      s.x = nx; s.y = ny;
-      if (Math.random() < .004) { const a = Math.random() * Math.PI * 2; s.vx = Math.cos(a) * .6; s.vy = Math.sin(a) * .6; }
-      if (invuln <= 0 && Math.abs(s.x - player.x) < 10 && Math.abs(s.y + 4 - player.y) < 10) {
-        hp--; invuln = 1200; renderHearts(hp); sfxHit();
-        if (hp <= 0) end(false);
-      }
-    });
-    invuln = Math.max(0, invuln - dt);
-
-    coins = coins.filter(c => {
-      if (Math.abs(c.x + 4 - (player.x + 8)) < 10 && Math.abs(c.y + 4 - (player.y + 10)) < 10) {
-        score++; sfxCoin();
-        document.getElementById('score').textContent = score;
-        return false;
-      }
-      return true;
-    });
-    while (state === 'play' && coins.length < 4 && score + coins.length < GOAL) coins.push(freeSpot());
-    if (score >= GOAL && state === 'play') end(true);
-  }
-
-  function draw(t) {
-    ctx.drawImage(bg, 0, 0);
-    drawWater(t);
-    const bob = Math.floor(t / 250) % 2;
-    coins.forEach(c => ctx.drawImage(spr.coin, Math.round(c.x + 4), Math.round(c.y + 4 - bob)));
-    slimes.forEach(s => ctx.drawImage(spr.slime, Math.round(s.x), Math.round(s.y + (Math.floor(t / 300) % 2))));
-    if (!(invuln > 0 && Math.floor(t / 80) % 2)) {
-      const px = Math.round(player.x), py = Math.round(player.y);
-      ctx.save();
-      if (player.dir < 0) { ctx.translate(px + 16, py); ctx.scale(-1, 1); ctx.drawImage(spr.hero, 0, 0); }
-      else ctx.drawImage(spr.hero, px, py);
-      ctx.restore();
-    }
-  }
-
-  function loop(t) {
-    const dt = Math.min(50, t - last); last = t;
-    if (state === 'play') update(dt);
-    if (player) draw(t); else { ctx.drawImage(bg, 0, 0); drawWater(t); }
-    requestAnimationFrame(loop);
-  }
-
-  // ---- 입력 ----
-  const map = { ArrowUp: 'up', w: 'up', W: 'up', ArrowLeft: 'left', a: 'left', A: 'left',
-                ArrowDown: 'down', s: 'down', S: 'down', ArrowRight: 'right', d: 'right', D: 'right' };
-  addEventListener('keydown', e => { const k = map[e.key]; if (k) { keys[k] = true; if (state === 'play') e.preventDefault(); } });
-  addEventListener('keyup', e => { const k = map[e.key]; if (k) keys[k] = false; });
-  addEventListener('blur', () => Object.keys(keys).forEach(k => keys[k] = false));
-
-  document.querySelectorAll('#pad button').forEach(b => {
-    const k = b.dataset.k;
-    const on = e => { e.preventDefault(); keys[k] = true; b.classList.add('on'); };
-    const off = e => { e.preventDefault(); keys[k] = false; b.classList.remove('on'); };
-    b.addEventListener('pointerdown', on);
-    ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => b.addEventListener(ev, off));
+    quiz.appendChild(d);
   });
 
-  document.getElementById('start').addEventListener('click', () => {
-    reset(); state = 'play';
-    document.getElementById('overlay').hidden = true;
-    beep(659, .1); setTimeout(() => beep(880, .15), 100);
-  });
-
-  renderHearts(3);
-  requestAnimationFrame(loop);
+  // 셀프 체크
+  const boxes = [...document.querySelectorAll('#check input')], result = document.getElementById('result');
+  boxes.forEach(b => b.addEventListener('change', () => {
+    const n = boxes.filter(x => x.checked).length;
+    result.textContent = n === 0
+      ? '좋아요! 눈에 띄는 곳이 없어요. 그래도 학교 검사는 꼭 받아요.'
+      : '살펴본 걸 부모님이나 선생님께 말해 주세요. 검사에서 정확히 알 수 있어요. 걱정은 하지 않아도 괜찮아요!';
+  }));
 })();
 </script>
 </body>
